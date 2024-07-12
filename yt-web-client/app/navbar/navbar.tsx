@@ -7,6 +7,7 @@ import styles from "./navbar.module.css";
 import { useEffect, useState } from "react";
 import { onAuthStateChangedHelper } from "../firebase/firebase";
 import { User } from "firebase/auth";
+import Upload from "./upload";
 
 
 function NavBar() {
@@ -24,12 +25,21 @@ function NavBar() {
 
 
   return (
+    //Youtube Logo w/ link to homepage
+    //Show Upload Button when user==True
+    //set Signin User
     <nav className={styles.nav}>
       <Link href="/">
         <span className={styles.logoContainer}>
-          <img className={styles.logo} src="/youtube-logo.svg" alt="YouTube Logo" />
+          <img className={styles.logo}
+          src="/youtube-logo.svg" alt="YouTube Logo" />
         </span>
       </Link>
+
+      {
+        user && <Upload />
+      }
+
       <SignIn user={user} />
     </nav>
   );
