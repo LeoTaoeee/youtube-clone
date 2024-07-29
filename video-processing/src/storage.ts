@@ -28,7 +28,7 @@ const localProcessedVideoPath = "./processed-videos";
 export function convertVideo(rawVideoName: string, processedVideoName: string) {
   return new Promise<void>((resolve, reject) => {
     ffmpeg(`${localRawVideoPath}/${rawVideoName}`)
-      .outputOptions("-vf", "scale=-1:360") // 360p
+      .outputOptions("-vf", "scale=360:-1") // 360p
       .on("end", function () {
         console.log("Processing finished successfully");
         resolve();
