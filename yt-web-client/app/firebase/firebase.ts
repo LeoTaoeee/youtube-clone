@@ -6,6 +6,7 @@ import { getAuth,
     onAuthStateChanged,
     User
 } from "firebase/auth";
+import { getFunctions } from "firebase/functions";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -21,6 +22,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app)
+export const functions = getFunctions(app);
 
 //below are some wrapper functions, so that we dont expose Auth outside of this file.
 /**
