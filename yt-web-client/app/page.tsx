@@ -20,3 +20,7 @@ export default async function Home() {
     </main>
   )
 }
+
+//time period in seconds that refetch this requests
+//this is also to disable cacheing, so that we can see new uploaded videos
+export const revalidate = 30;
